@@ -33,15 +33,24 @@ options:
 
 blocks:
 - name: audio_volume
-  id: variable
+  id: variable_qtgui_range
   parameters:
     comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: float
+    start: '0'
+    step: '0.1'
+    stop: '1'
     value: '1'
+    widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [345, 89]
+    coordinate: [350, 215]
     rotation: 0
     state: true
 - name: center_freq
@@ -128,7 +137,7 @@ blocks:
     start: '-100'
     step: '1'
     stop: '0'
-    value: '-60'
+    value: '-63'
     widget: counter_slider
   states:
     bus_sink: false
@@ -1357,6 +1366,67 @@ blocks:
     coordinate: [70, 512]
     rotation: 0
     state: enabled
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.10'
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [729, 574]
+    rotation: 0
+    state: true
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
@@ -1569,6 +1639,7 @@ connections:
 - [low_pass_filter_0_0_4, '0', rational_resampler_xxx_0_0_4, '0']
 - [low_pass_filter_0_0_4_0, '0', rational_resampler_xxx_0_0_4_0, '0']
 - [osmosdr_source_0, '0', blocks_multiply_xx_0, '0']
+- [osmosdr_source_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [rational_resampler_xxx_0, '0', analog_pwr_squelch_xx_0, '0']
 - [rational_resampler_xxx_0_0, '0', analog_pwr_squelch_xx_0_0, '0']
 - [rational_resampler_xxx_0_0_0, '0', analog_pwr_squelch_xx_0_0_0, '0']
